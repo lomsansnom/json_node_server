@@ -1,0 +1,22 @@
+{
+  "name": "json_node_server",
+  "version": "1.0.0",
+  "description": "json_node_server can handle POST/PUT/GET/DELETE requests.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lomsansnom/json_node_server.git"
+  },
+  "author": "Alexandre Cathalan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lomsansnom/json_node_server/issues"
+  },
+  "homepage": "https://github.com/lomsansnom/json_node_server#readme"
+}
