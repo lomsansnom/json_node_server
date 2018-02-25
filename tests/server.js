@@ -2,7 +2,7 @@
 
 const server = require('../')('testServer', {
   port: 3030,
-  cors: true
+  cors: true,
 });
 
 server.get('test', (req, res) => {

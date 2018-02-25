@@ -12,65 +12,65 @@ const port = 3030;
 const uri = `${protocol}//${hostname}:${port}`;
 
 describe('HTTP Methods', () => {
-  before(function () {
+  before(() => {
     server.start();
   });
 
-  after(function () {
+  after(() => {
     server.stop();
   });
 
   describe('GET', () => {
     it('should have code 200', (done) => {
-      http.get(uri + '/test', (res) => {
+      http.get(`${uri}/test`, (res) => {
         assert.equal(res.statusCode, 200);
         done();
       });
     });
 
     it('should have code 404', (done) => {
-      http.get(uri + '/test/unknown', (res) => {
+      http.get(`${uri}/test/unknown`, (res) => {
         assert.equal(res.statusCode, 404);
         done();
       });
     });
 
     it('should return the query string as json (also ensure the response is a valid JSON)', (done) => {
-      http.get(uri + '/testQueryString?id=1&name=test', (res) => {
+      http.get(`${uri}/testQueryString?id=1&name=test`, (res) => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
     });
 
     it('should return the URLs params as json (also ensure the response is a valid JSON)', (done) => {
-      http.get(uri + '/testParams/1/test', (res) => {
+      http.get(`${uri}/testParams/1/test`, (res) => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
     });
   });
 
   describe('POST', () => {
     const options = {
-      protocol, hostname, port, method: 'POST'
+      protocol, hostname, port, method: 'POST',
     };
 
     it('should have code 200', (done) => {
@@ -114,13 +114,13 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           assert.equal(data, body);
           done();
-        })
+        });
       });
 
       req.write(body);
@@ -134,14 +134,14 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
 
       req.end();
@@ -154,14 +154,14 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
 
       req.end();
@@ -170,7 +170,7 @@ describe('HTTP Methods', () => {
 
   describe('PUT', () => {
     const options = {
-      protocol, hostname, port, method: 'PUT'
+      protocol, hostname, port, method: 'PUT',
     };
 
     it('should have code 200', (done) => {
@@ -214,13 +214,13 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           assert.equal(data, body);
           done();
-        })
+        });
       });
 
       req.write(body);
@@ -234,14 +234,14 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
 
       req.end();
@@ -254,14 +254,14 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
 
       req.end();
@@ -270,7 +270,7 @@ describe('HTTP Methods', () => {
 
   describe('DELETE', () => {
     const options = {
-      protocol, hostname, port, method: 'DELETE'
+      protocol, hostname, port, method: 'DELETE',
     };
 
     it('should have code 200', (done) => {
@@ -302,14 +302,14 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
 
       req.end();
@@ -322,14 +322,14 @@ describe('HTTP Methods', () => {
         let data = '';
 
         res.on('data', (chunk) => {
-          data += chunk
+          data += chunk;
         });
 
         res.on('end', () => {
           const expected = JSON.stringify({ id: '1', name: 'test' }); // Put 1 as a string because with HTTP there is no type so numbers are parsed as Strings
           assert.equal(data, expected);
           done();
-        })
+        });
       });
 
       req.end();
