@@ -64,5 +64,4 @@ server.put('testBody', (req, res) => {
   res.end(JSON.stringify(req.body));
 });
 
-server.start();
 module.exports = server;
