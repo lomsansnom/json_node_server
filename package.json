@@ -1,6 +1,6 @@
 {
   "name": "json_node_server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "json_node_server is a lightweight nodeJS library for the creation of simple APIs. It supports the methods GET, POST, PUT and DELETE and handles JSON payloads by default.",
   "main": "index.js",
   "scripts": {
